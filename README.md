@@ -22,6 +22,9 @@ Data Example
 ```
 {"name":"flare","children":[{"name": "건설", "children": [{"name": "학교 태양광", "children": [{"name": "전국 학교"}]}, {"name": "서남해 해상풍력", "children": [{"name": "전북 부안 위도 ~ 전남 영광 안마도 해상"}]}, {"name": "발전본부 부지내 태양광 1단계", "children": [{"name": "충남 태안군 태안읍 원북면"}]}, {"name": "발전본부 부지내 태양광 2단계", "children": [{"name": "충남 태안군 태안읍 원북면"}]}]}, {"name": "운영", "children": [{"name": "영암 F1 경기장", "children": [{"name": "전남 영암군 삼호읍 삼포리 "}]}, {"name": "경기 안산배수지", "children": [{"name": "경기도 안산시 단원구"}]}, {"name": "태안 IGCC", "children": [{"name": "충남 태안군 태안읍 원북면"}]}, {"name": "세종시 2차 1단계 KDI  ", "children": [{"name": "세종특별자치시 남세종로 263"}]},
 ```
+![Alt text](/캡처1.PNG)
+* 계층적 구조를 표현 예
+
 Python Code
 ===
 [https://gist.github.com/tjdgns8047/412efb3d1cba79cba130ae60b2a34505](https://gist.github.com/tjdgns8047/412efb3d1cba79cba130ae60b2a34505)

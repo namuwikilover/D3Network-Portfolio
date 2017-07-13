@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body> 
+ <style>
+.link {
+fill: none;
+stroke: #ccc;
+opacity: 0.45;
+stroke-width: 1.5px;
+}
+.node circle {
+stroke: #fff;
+opacity: 0.9;
+stroke-width: 1.5px;
+}
+.node:not(:hover) .nodetext {
+display: none;
+}
+text {
+font: 8px serif;
+opacity: 0.9;
+pointer-events: none;
+}
+</style>
+
+<script src=http://d3js.org/d3.v3.min.js></script>
+
+<script> 
+ var width = 900
+height = 600;
+
+var diameter = 1200;
+
+var tree = d3.layout.tree()
+.size([360, diameter / 2 - 120])
+.separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+
+var diagonal = d3.svg.diagonal.radial()
+.projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+
+var svg = d3.select("body").append("svg")
+.attr("width", width)
+.attr("height", height)
+.attr("pointer-events", "all")
+.call(d3.behavior.zoom().on("zoom", redraw));
+
+var vis = svg
+.append("svg:g");
+
+vis.append("svg:rect")
+.attr("width", width)
+.attr("height", height)
+.attr("fill", 'white');
+
+function redraw() {
+vis.attr("transform",
+"translate(" + d3.event.translate + ")"
++ " scale(" + d3.event.scale + ")");
+}
+
+
+ var root = {"name":"flare","children":[{"name":"\uac74\uc124","children":[{"name":"\ud559\uad50 \ud0dc\uc591\uad11","children":[{"name":"\uc804\uad6d \ud559\uad50"}]},{"name":"\uc11c\ub0a8\ud574 \ud574\uc0c1\ud48d\ub825","children":[{"name":"\uc804\ubd81 \ubd80\uc548 \uc704\ub3c4 ~ \uc804\ub0a8 \uc601\uad11 \uc548\ub9c8\ub3c4 \ud574\uc0c1"}]},{"name":"\ubc1c\uc804\ubcf8\ubd80 \ubd80\uc9c0\ub0b4 \ud0dc\uc591\uad11 1\ub2e8\uacc4","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\ubc1c\uc804\ubcf8\ubd80 \ubd80\uc9c0\ub0b4 \ud0dc\uc591\uad11 2\ub2e8\uacc4","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]}]},{"name":"\uc6b4\uc601","children":[{"name":"\uc601\uc554 F1 \uacbd\uae30\uc7a5","children":[{"name":"\uc804\ub0a8 \uc601\uc554\uad70 \uc0bc\ud638\uc74d \uc0bc\ud3ec\ub9ac "}]},{"name":"\uacbd\uae30 \uc548\uc0b0\ubc30\uc218\uc9c0","children":[{"name":"\uacbd\uae30\ub3c4 \uc548\uc0b0\uc2dc \ub2e8\uc6d0\uad6c"}]},{"name":"\ud0dc\uc548 IGCC","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\uc138\uc885\uc2dc 2\ucc28 1\ub2e8\uacc4 KDI  ","children":[{"name":"\uc138\uc885\ud2b9\ubcc4\uc790\uce58\uc2dc \ub0a8\uc138\uc885\ub85c 263"}]},{"name":"\uad70\uc0b0\ubcf8\ubd80","children":[{"name":"\uc804\ubd81 \uad70\uc0b0\uc2dc \uad6c\uc554 3.1\ub85c"}]},{"name":"\ud0dc\uc548#1~4,7,8 \uc6b0\ub4dc\ud3a0\ub9bf","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\ud3c9\ud0dd\ubcf8\ubd80","children":[{"name":"\uacbd\uae30\ub3c4 \ud3c9\ud0dd\uc2dc \ud3ec\uc2b9\uc74d"}]},{"name":"\ud0dc\uc548\ubcf8\ubd80 \uc218\uc0c1","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\uc11c\uc778\ucc9c 2\ucc28 \uc5f0\ub8cc\uc804\uc9c0","children":[{"name":"\uc778\ucc9c\uad11\uc5ed\uc2dc \uc11c\uad6c \uc7a5\ub3c4\ub85c"}]},{"name":"\ud0dc\uc548\ud654\ub825 #2~4 \uc720\uae30\uc131\uace0\ud615\uc5f0\ub8cc","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\ud0dc\uc548\ubcf8\ubd80 \uac74\ubb3c\uc625\uc0c1","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\uc138\uc885\uc2dc \uc218\uc9c8\ubcf5\uc6d0\uc13c\ud130","children":[{"name":"\uc138\uc885\ud2b9\ubcc4\uc790\uce58\uc2dc \uae08\uc1a1\ub85c 612"}]},{"name":"\uc138\uc885\uc2dc \ud3d0\uae30\ubb3c\ub9e4\ub9bd\uc9c0","children":[{"name":"\uc138\uc885\ud2b9\ubcc4\uc790\uce58\uc2dc \uace0\uc6b4\ub3d9"}]},{"name":"\ud654\uc21c\ud48d\ub825","children":[{"name":"\uc804\ub0a8 \ud654\uc21c\uad70 \ub3d9\uba74 \uccad\uad81\ub9ac"}]},{"name":"\ud654\uc21c\ud48d\ub825 ESS","children":[{"name":"\uc804\ub0a8 \ud654\uc21c\uad70 \ub3d9\uba74 \uccad\uad81\ub9ac"}]},{"name":"\uc0bc\ub791\uc9c4 \ud0dc\uc591\uad11","children":[{"name":"\uacbd\ub0a8 \ubc00\uc591\uc2dc \uc0bc\ub791\uc9c4\uc74d \ud589\uace1\ub85c"}]},{"name":"\ud0dc\uc548 \ud14c\ub2c8\uc2a4\uc7a5 \ud0dc\uc591\uad11","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\uc138\uc885\uc2dc \uc790\uc804\uac70\ub3c4\ub85c","children":[{"name":"\uc138\uc885\ud2b9\ubcc4\uc790\uce58\uc2dc"}]},{"name":"\ud3c9\ud0dd #2 \ubc14\uc774\uc624\uc911\uc720","children":[{"name":"\uacbd\uae30\ub3c4 \ud3c9\ud0dd\uc2dc \ud3ec\uc2b9\uc74d"}]},{"name":"\uc11c\uc778\ucc9c 1\ucc28 \uc5f0\ub8cc\uc804\uc9c0","children":[{"name":"\uc778\ucc9c\uad11\uc5ed\uc2dc \uc11c\uad6c \uc7a5\ub3c4\ub85c"}]},{"name":"\ub300\uad6c \ud558\uc218\ucc98\ub9ac\uc7a5","children":[{"name":"\ub300\uad6c\uad11\uc5ed\uc2dc \ub2ec\uc131\uad70 \ud604\ud48d\uba74"}]},{"name":"\uc138\uc885\uc2dc 2\ucc28 1\ub2e8\uacc4 \ud638\uc218\uacf5\uc6d0","children":[{"name":"\uc138\uc885\ud2b9\ubcc4\uc790\uce58\uc2dc \uc5f0\uae30\uba74 \uc138\uc885\ub9ac"}]},{"name":"\uacbd\uae30 \uc2dc\ud765 \uc5f0\uc131\uc815\uc218\uc7a5","children":[{"name":"\uacbd\uae30\ub3c4 \uc2dc\ud765\uc2dc \uad11\uc11d\ub3d9"}]}]},{"name":"\uac1c\ubc1c","children":[{"name":"\ub098\uc8fc\ud638 \uc218\uc0c1\ud0dc\uc591\uad11","children":[{"name":"\uc804\ub0a8 \ub098\uc8fc\uc2dc \ub2e4\ub3c4\uba74"}]},{"name":"\uad70\uc0b0\ubcf8\ubd80 \ud0dc\uc591\uad11","children":[{"name":"\uc804\ubd81 \uad70\uc0b0\uc2dc \uad6c\uc554 3.1\ub85c"}]},{"name":"\ubcf4\uc131 \ud48d\ub825","children":[{"name":"\uc804\ub0a8 \ubcf4\uc131"}]},{"name":"\uc591\uad6c 2 \ud0dc\uc591\uad11","children":[{"name":"\uac15\uc6d0\ub3c4 \uc591\uad6c"}]},{"name":"\uc218\ub3c4\uad8c\ub9e4\ub9bd\uc9c0 \ud0dc\uc591\uad11","children":[{"name":"\uc778\ucc9c \uc11c\uad6c \uc624\ub958\ub3d9"}]},{"name":"\uc774\uc6d0\ud638 \uc218\uc0c1\ud0dc\uc591\uad11","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\uc624\ub4502 \ud48d\ub825","children":[{"name":"\uac15\uc6d0\ub3c4 \uc0bc\ucc99"}]},{"name":"\uacc4\ud654\uc870\ub958\uc9c0 \uc218\uc0c1\ud0dc\uc591\uad11","children":[{"name":"\uc804\ubd81 \ubd80\uc548 \uacc4\ud654\uba74"}]},{"name":"\ud0dc\uc548\ubcf8\ubd80 \ud68c\uc0ac\uc7a5 \ud0dc\uc591\uad11","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\uc591\uad6c 1 \ud0dc\uc591\uad11","children":[{"name":"\uac15\uc6d0\ub3c4 \uc591\uad6c"}]},{"name":"\uace1\uc131 \ud48d\ub825","children":[{"name":"\uc804\ub0a8 \uace1\uc131"}]},{"name":"\uccad\ud638\uc9c0 \uc218\uc0c1\ud0dc\uc591\uad11","children":[{"name":"\uc804\ubd81 \ubd80\uc548 \ud558\uc11c\uba74"}]},{"name":"\uc5ec\uc218 \ubc14\uc774\uc624","children":[{"name":"\uc804\ub77c \uc5ec\uc218\uc2dc \ud654\uce58\ub3d9"}]},{"name":"\uc7a5\ud765\ud48d\ub825 \ubc0f ESS","children":[{"name":"\uc804\ub0a8 \uc7a5\ud765\uad70 \ubd80\uc0b0\uba74 \uc9c0\ucc9c\ub9ac"}]},{"name":"\uc591\uad6c \ud48d\ub825","children":[{"name":"\uac15\uc6d0\ub3c4 \uc591\uad6c"}]},{"name":"\uae40\ud3ec \ud559\uc6b4 \ubc14\uc774\uc624","children":[{"name":"\uacbd\uae30\ub3c4 \uae40\ud3ec\uc2dc \uc591\ucd0c\uc74d"}]},{"name":"\uc11c\uc778\ucc9c \uc5f0\ub8cc\uc804\uc9c0 3\ub2e8\uacc4","children":[{"name":"\uc778\ucc9c\uad11\uc5ed\uc2dc \uc11c\uad6c \uc7a5\ub3c4\ub85c"}]},{"name":"\ubc1c\uc804\ubd80\uc9c0 \ud0dc\uc591\uad11 ESS","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\ud0dc\uc548\ubcf8\ubd80 \uc81c2\uc18c\uc218\ub825","children":[{"name":"\ucda9\ub0a8 \ud0dc\uc548\uad70 \ud0dc\uc548\uc74d \uc6d0\ubd81\uba74"}]},{"name":"\ub300\uc0b0 \uc218\uc0c1\ud0dc\uc591\uad11","children":[{"name":"\ucda9\ub0a8 \uc11c\uc0b0\uc2dc \ub300\uc0b0\uc74d"}]}]}]} ; 
+ var nodes = tree.nodes(root),
+links = tree.links(nodes);
+
+var link = vis.selectAll(".link")
+.data(links)
+.enter().append("path")
+.attr("class", "link")
+.attr("d", diagonal);
+
+var node = vis.selectAll(".node")
+.data(nodes)
+.enter().append("g")
+.attr("class", "node")
+.attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+.on("mouseover", mouseover)
+.on("mouseout", mouseout)
+
+node.append("circle")
+.attr("r", 4.5)
+.style("fill", "#3182bd");
+
+node.append("svg:text")
+.attr("dy", ".31em")
+.attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+.attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
+.style("fill", "#3182bd")
+.text(function(d) { return d.name; });
+
+function mouseover() {
+d3.select(this).select("circle").transition()
+.duration(750)
+.attr("r", 9)
+d3.select(this).select("text").transition()
+.duration(750)
+.attr("dy", ".31em")
+.attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+.attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
+.style("stroke-width", ".5px")
+.style("font", "15.2px serif")
+.style("opacity", 1);
+}
+
+function mouseout() {
+d3.select(this).select("circle").transition()
+.duration(750)
+.attr("r", 4.5)
+d3.select(this).select("text").transition()
+.duration(750)
+.attr("dy", ".31em")
+.attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+.attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
+.style("font", "8px serif")
+.style("opacity", 0.9);
+}
+
+d3.select(self.frameElement).style("height", diameter - 150 + "px");
+
+</script>
+ </body>

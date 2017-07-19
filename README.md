@@ -14,17 +14,6 @@ Motivation
  공공 데이터 포털에서 친환경 발전 현황을 나타내는 데이터를 좀 더 효과적으로 표현하기 위해서 D3.js의 Radial Tidy Tree 형식을 이용해봤다.
 =======
 D3Network 라이브러리를 이용해서 공공 데이터를 시각화
- 
-Demo
-===
-![Alt text](/캡처.PNG)
-
-Motivation
-===
- 지금 이 포트폴리오를 쓰고 있는 오늘, 경주
-온도가 39도를 찍고, 미세 먼지가 사회의 심각한 문제가 되고 있다.  
- 공공 데이터 포탈에서 친환경 발전 현황을 나타내는 데이터를 좀 더 효과적으로 표현하기 위해서 D3.js의 Radial Tidy Tree 형식을 이용해봤다.
-
 
 Main Technology Stack
 ===
@@ -38,12 +27,14 @@ Data Example
 ```
 
 ---
+
 ![IMG](C:\Users\tjdgn\Desktop\October\D3Network\img\공공데이터.PNG)
 
 Hierarchy Example
 ===
 
-![IMG](C:\Users\tjdgn\Desktop\October\D3Network\img\계층형.PNG)
+![IMG](C:\Users\tjdgn\Desktop\October\D3Network\img\diagram.PNG)
+
 * 계층적 구조를 표현 예
 
 R Script
@@ -61,12 +52,6 @@ shell.exec(text.thml)
 Python Code
 ===
 > 공공데이터 포털의 기존 **csv**형식 데이터를 **d3.js**에서 필요한 계층형 **json**형식으로 파싱하기 위해서 파이썬 코드를 이용함
-=======
-![Alt text](/캡처1.PNG)
-* 계층적 구조를 표현 예
-
-Python Code
-===
 [https://gist.github.com/tjdgns8047/412efb3d1cba79cba130ae60b2a34505](https://gist.github.com/tjdgns8047/412efb3d1cba79cba130ae60b2a34505)
 
 Parsing Data 

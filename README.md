@@ -5,7 +5,7 @@ D3Network 한국서부발전_신재생에너지+사업현황 시각화
  
 Demo
 ===
-![IMG](C:\Users\tjdgn\Desktop\October\D3Network\img\캡처.PNG)
+![IMG](.\img\캡처.PNG)
 
 Motivation
 ===
@@ -28,12 +28,12 @@ Data Example
 
 ---
 
-![IMG](C:\Users\tjdgn\Desktop\October\D3Network\img\공공데이터.PNG)
+![IMG](.\img\공공데이터.PNG)
 
 Hierarchy Example
 ===
 
-![IMG](C:\Users\tjdgn\Desktop\October\D3Network\img\diagram.PNG)
+![IMG](.\img\diagram.PNG)
 
 * 계층적 구조를 표현 예
 

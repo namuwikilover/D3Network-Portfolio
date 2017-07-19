@@ -5,7 +5,8 @@ D3Network 한국서부발전_신재생에너지+사업현황 시각화
  
 Demo
 ===
-![IMG](.\img\캡처.PNG)
+![IMG](".\img\캡처.PNG")
+<img src=".\img\캡처.PNG" />
 
 Motivation
 ===

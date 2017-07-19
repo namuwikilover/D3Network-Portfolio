@@ -1,3 +1,4 @@
+<img src='http://d-miller.github.io/images/D3.png'>
 D3Network 한국서부발전_신재생에너지+사업현황 시각화
 ========
 
@@ -45,7 +46,7 @@ library(RCurl)
 URL <- "https://gist.github.com/tjdgns8047/a9da753691fd22e9858592fb67d08145"
 Flare <- getURL(URL)
 Flare <- rjson::fromJSON(Flare)
-d3Tree(List = Flare, fontsize = 8, diameter = 1200, zoom=TRUE, file="test.html")
+d3Tree(List = Flare, fontsize = 8, diameter = 1200, zoom=TRUE, file="result.html")
 shell.exec(text.thml)
 ```
 

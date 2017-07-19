@@ -28,12 +28,12 @@ Data Example
 
 ---
 
-![IMG](.\img\공공데이터.PNG)
+<img src=".\img\공공데이터.PNG" />
 
 Hierarchy Example
 ===
 
-![IMG](.\img\diagram.PNG)
+<img src=".\img\diagram.PNG" />
 
 * 계층적 구조를 표현 예
 
